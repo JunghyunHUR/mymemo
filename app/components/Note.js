@@ -17,10 +17,10 @@ const Note = ({item, onPress}) => {
 const width = Dimensions.get("window").width - 40;
 const styles = StyleSheet.create({
     container: {
-        backgroudColor: colors.PRIMARY,
-        width: width / 2 / 10,
-        padding: 8,
-        borderRadius: 10
+        backgroundColor: colors.PRIMARY,
+        width: width / 2.2 - 10,
+        padding: 11,
+        borderRadius: 10,
     },
     title: {
         fontWeight: 'bold',

@@ -52,12 +52,12 @@ const NoteInputModal = ({visible, onClose, onSubmit, note, isEdit}) => {
 
     return (
         <>
-          <StatusBar hidden />  
+          <StatusBar barStyle="white-content" />  
           <Modal visible={visible} animationType='fade'>
                 <View style={styles.container}>
                     <TextInput 
                         value={title}
-                        onChange={text => handleOnChangeText(text, "title")}
+                        onChangeText={text => handleOnChangeText(text, "title")}
                         placeholder='제목을 입력하세요.'
                         style={[styles.input, styles.title]}
                     />
@@ -66,7 +66,7 @@ const NoteInputModal = ({visible, onClose, onSubmit, note, isEdit}) => {
                         multiline
                         placeholder='내용을 입력하세요.'
                         style={[styles.input, styles.desc]}
-                        onChange={text => handleOnChangeText(text, "desc")}
+                        onChangeText={text => handleOnChangeText(text, "desc")}
                     />
                     <View style={styles.btnContainer}>
                         <RoundIconBtn 
@@ -103,16 +103,21 @@ const styles = StyleSheet.create({
         color: colors.DARK
     },
     title: {
-
+        height: 40,
+        marginBottom: 15,
+        fontWeight: "bold"
     },
     desc: {
-        
+        height: 90
     },
     modalBG: {
-
+        flex: 1,
+        zIndex: -1
     },
     btnContainer: {
-
+        flexDirection: "row",
+        justifyContent: "center",
+        paddingVertical: 15
     }
 
 });

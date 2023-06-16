@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard, StatusBar, FlatList } from "react-native";
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard, StatusBar, FlatList, SafeAreaView } from "react-native";
 import Note from '../components/Note';
 import NotFound from '../components/NotFound';
 import RoundIconBtn from '../components/RoundIconBtn';
@@ -77,12 +77,12 @@ const NoteScreen = ({user, navigation}) => {
     }
     
     return (
-        <>
+        <SafeAreaView style={styles.container}>
             <StatusBar barStyle="dark-content" backgroudColor={colors.LIGHT} />
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
-                    <Text>
-                        {user.name}님이 {greet}에 쓰심.
+                    <Text style={styles.greet}>
+                        {user.name}님, {greet}입니다. 반갑습니다.
                     </Text>
                 {notes.length ? (
                     <SearchBar
@@ -133,7 +133,7 @@ const NoteScreen = ({user, navigation}) => {
                 onClose={()=>setModalVisible(false)} 
                 onSubmit={handleOnSubmit}
             />
-        </>
+        </SafeAreaView>
     );
 };
 
@@ -164,6 +164,12 @@ const styles = StyleSheet.create({
         right: 15,
         bottom: 50,
         zIndex: 1
+    },
+    greet: {
+        fontSize: 15,
+        fontWeight: "bold",
+        marginVertical: 15,
+        color: colors.DARK
     }
 });
 
