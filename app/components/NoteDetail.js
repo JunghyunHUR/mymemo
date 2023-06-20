@@ -5,7 +5,7 @@ import RoundIconBtn from './RoundIconBtn';
 import { useNotes } from '../contexts/NoteProvider';
 import NoteInputModal from './NoteInputModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useHeaderHeight } from '@react-navigation/stack';
+import { useHeaderHeight } from '@react-navigation/elements';
 
 const formatDate = (ms) => {
     const date = new Date(ms);
@@ -19,7 +19,7 @@ const formatDate = (ms) => {
     return `${year}-${month}-${day}(${hrs}:${min}:${sec})`;
 }
 
-const NoteDetail = (props) => {
+const NoteDetail = props => {
     const [note, setNote] = useState(props.route.params.note);
     const [showModal, setShowModal] = useState(false);
     const [isEdit, setIsEdit] = useState(false);

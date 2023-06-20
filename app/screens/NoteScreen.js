@@ -47,7 +47,7 @@ const NoteScreen = ({user, navigation}) => {
     }
 
     const openNote = (note) => {
-        navigation.navigate("noteDetail", { note });
+        navigation.navigate("NoteDetail", { note });
     }
 
     const handleOnSearchInput = async text => {
